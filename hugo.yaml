@@ -1,0 +1,79 @@
+baseURL: https://blog.netunix.tech/
+title: 🧑‍💻 NetUnix 
+pagination.pagerSize: 5
+theme: PaperMod
+
+params:
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true  
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/damienarnodo"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/darnodo/"
+
+languages:
+  en:
+    languageName: English
+    contentDir: 'content/en'
+    params:
+      profileMode:
+        enabled: true
+        title: "NetUnix"
+        subtitle: "Welcome to this blog, where we talk about NetOps, networks and systems..."
+        imageUrl: "https://www.svgrepo.com/show/395137/network.svg"
+        imageTitle: "Network logo"
+        imageWidth: 120
+        imageHeight: 120
+        buttons:
+          - name: Documentation
+            url: "categories/documentations/"
+          - name: NetLab
+            url: "categories/NetLab/"
+
+    menu:
+      main:
+        - name: Categories
+          url: /categories/
+          weight: 10
+        - name: Tags
+          url: /tags/
+          weight: 20
+        - name: Archives
+          url: archives/
+          weight: 30 
+
+  fr:
+    languageName: Français
+    contentDir: 'content/fr'
+    params:
+      profileMode:
+        enabled: true
+        title: "NetUnix"
+        subtitle: "Bienvenue sur ce blog, où nous parlons de NetOps, de réseaux et de systèmes..." 
+        imageUrl: "https://www.svgrepo.com/show/395137/network.svg"
+        imageTitle: "Network logo"
+        imageWidth: 120
+        imageHeight: 120
+        buttons:
+          - name: Documentations
+            url: "categories/documentations/"
+          - name: NetLab
+            url: "categories/NetLab/"
+
+    menu:
+      main:
+        - name: Catégories
+          url: /categories/
+          weight: 10
+        - name: Tags
+          url: /tags/
+          weight: 20
+        - name: Archives
+          url: archives
+          weight: 30 
+
+  
+
