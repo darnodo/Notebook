@@ -1,4 +1,5 @@
 ---
+
 title: "Introduction to NetLabs"
 date: 2024-08-25T15:19:00+02:00
 draft: false
@@ -7,7 +8,9 @@ UseHugoToc: true
 TocOpen: false
 showToc: true
 weight: 1
+
 ---
+
 ## Introduction
 
 📡 In a world where computer networks play an increasingly significant role in our daily lives, understanding the principles and logic that drive them becomes more and more essential.
