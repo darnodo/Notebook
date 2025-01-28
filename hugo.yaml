@@ -7,10 +7,14 @@ params:
   ShowReadingTime: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true  
+  cover:
+    hidden: false
+    hiddenInList: false
+    hiddenInSingle: false
 
   socialIcons:
     - name: github
-      url: "https://github.com/damienarnodo"
+      url: "https://github.com/darnodo"
     - name: linkedin
       url: "https://www.linkedin.com/in/darnodo/"
 
@@ -31,7 +35,7 @@ languages:
           - name: Documentation
             url: "categories/documentations/"
           - name: NetLab
-            url: "categories/NetLab/"
+            url: "categories/netlab/"
 
     menu:
       main:
@@ -61,7 +65,7 @@ languages:
           - name: Documentations
             url: "categories/documentations/"
           - name: NetLab
-            url: "categories/NetLab/"
+            url: "categories/netlab/"
 
     menu:
       main:
