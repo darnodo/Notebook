@@ -83,11 +83,30 @@ En encapsulant la couche 2 dans la couche 3, on profite des avantages du routage
 
 ---
 
-### Exemple d’analogie : Transport de conteneurs 🚚 🚂
+### VXLAN expliqué par l’analogie du transport de conteneurs 🚚 🚂
 
-- **Les couches basses (camions) :** Transportent des données (conteneurs) du point A au point B.  
-- **Le VXLAN (train) :** Il charge ces camions (paquets Ethernet) sur un train (tunnel VXLAN) pour parcourir des distances plus longues à travers la couche 3.  
-- **Les voies ferrées (réseau IP) :** Sont déjà “convergées” et calculent le meilleur itinéraire pour acheminer les trains (tunnels VXLAN).
+#### 1. Les camions (couches basses)  
+
+Imaginez des camions sur la route. Leur mission est d’acheminer des conteneurs (vos données) d’un point A à un point B. Ces camions représentent la **couche Ethernet** (niveau 2), où chaque véhicule (frame) possède une « plaque d’immatriculation » (adresse MAC).
+
+#### 2. Le train (tunnel VXLAN)  
+
+Quand il s’agit de couvrir de plus longues distances ou de traverser des infrastructures variées, charger les camions sur un train devient plus efficace. Ici, **le train représente VXLAN** : il encapsule les camions (frames Ethernet) dans un wagon (le tunnel). Chaque train est identifié par un **VNI (VXLAN Network Identifier)**, un peu comme un numéro de convoi pour chaque ligne de fret.
+
+#### 3. Les voies ferrées (réseau IP)  
+
+Le train roule sur des rails (le **réseau IP**, couche 3). Les voies ferrées sont déjà construites et gérées pour trouver le meilleur itinéraire : elles assurent la convergence des routes et peuvent rediriger le trafic en cas de problème (panne, congestion, etc.). De la même façon, le réseau IP choisit automatiquement le chemin le plus optimal pour transporter les paquets VXLAN.
+
+---
+
+### Points clés à retenir
+
+- **Superposition (Overlay)** : VXLAN est un système de transport « par-dessus » la couche 3 (les rails). Il permet d’interconnecter plusieurs réseaux de niveau 2 (les camions) comme s’ils n’en formaient qu’un seul.  
+- **Double adressage** :  
+  - Les camions (frames Ethernet) s’identifient via des **adresses MAC** (plaque d’immatriculation).  
+  - Le train (tunnel VXLAN) utilise les **adresses IP** (plan de route) pour circuler sur les rails.  
+- **Isolation et segmentation** : Comme plusieurs trains peuvent rouler sur la même ligne ferroviaire, il est possible d’exploiter différents tunnels VXLAN (chacun avec son VNI) sur la même infrastructure IP.  
+- **Élasticité et fiabilité** : En s’appuyant sur la couche 3, VXLAN profite de toutes les optimisations du routage IP (recalcul d’itinéraires, tolérance aux pannes, etc.).  
 
 ![Container transport](transports.png#center)
 
