@@ -1,16 +1,13 @@
-baseURL: https://blog.netunix.tech/
-title: 🧑‍💻 NetUnix 
+baseURL: https://notes.arnodo.fr/
+title: 🧑‍💻 Notes 
 pagination.pagerSize: 5
 theme: PaperMod
 
 params:
   ShowReadingTime: true
   ShowPostNavLinks: true
-  ShowBreadCrumbs: true  
-  cover:
-    hidden: false
-    hiddenInList: false
-    hiddenInSingle: false
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true  
 
   socialIcons:
     - name: github
@@ -23,19 +20,12 @@ languages:
     languageName: English
     contentDir: 'content/en'
     params:
-      profileMode:
+      homeInfoParams:
         enabled: true
-        title: "NetUnix"
-        subtitle: "Welcome to this blog, where we talk about NetOps, networks and systems..."
-        imageUrl: "https://www.svgrepo.com/show/395137/network.svg"
-        imageTitle: "Network logo"
-        imageWidth: 120
-        imageHeight: 120
-        buttons:
-          - name: Documentation
-            url: "categories/documentations/"
-          - name: NetLab
-            url: "categories/netlab/"
+
+        Title: "Welcome to my blog! 🚀"
+        Content: > 
+          Here, we dive into the world of **NetOps, networking, and system automation**—exploring tools, best practices, and hands-on tips to streamline operations.  
 
     menu:
       main:
@@ -53,19 +43,11 @@ languages:
     languageName: Français
     contentDir: 'content/fr'
     params:
-      profileMode:
+      homeInfoParams:
         enabled: true
-        title: "NetUnix"
-        subtitle: "Bienvenue sur ce blog, où nous parlons de NetOps, de réseaux et de systèmes..." 
-        imageUrl: "https://www.svgrepo.com/show/395137/network.svg"
-        imageTitle: "Network logo"
-        imageWidth: 120
-        imageHeight: 120
-        buttons:
-          - name: Documentations
-            url: "categories/documentations/"
-          - name: NetLab
-            url: "categories/netlab/"
+        Title: "Bienvenue sur mon blog ! 🚀"
+        Content: >
+          Ici, nous plongeons dans l’univers du **NetOps, du networking et de l’automatisation des systèmes**, en explorant les outils, les meilleures pratiques et des conseils pratiques pour optimiser les opérations.  
 
     menu:
       main:
