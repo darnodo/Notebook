@@ -23,7 +23,7 @@ languages:
       homeInfoParams:
         enabled: true
 
-        Title: "Welcome to my blog! 🚀"
+        Title: "Welcome to my Note Book! 🚀"
         Content: > 
           Here, we dive into the world of **NetOps, networking, and system automation**—exploring tools, best practices, and hands-on tips to streamline operations.  
 
