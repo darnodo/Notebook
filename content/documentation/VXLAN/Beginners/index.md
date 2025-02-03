@@ -1,18 +1,6 @@
 ---
 title: "VXLAN for Beginners"
 date: 2024-08-01T20:00:00+02:00
-draft: false
-categories: "Documentation"
-tags:
-    - Network
-    - VXLAN
-    - Architecture
-UseHugoToc: true
-TocOpen: false
-showToc: true
-cover: 
-  image: "/img/cover_vxlan_dummies.webp"
-  caption: "Building the Future of Networking: Exploring VLANs and VXLANs Across Scalable Digital Landscapes"
 ---
 
 ## Understanding VLAN and VXLAN: Simplified for Non-Technicians

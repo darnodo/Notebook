@@ -1,65 +1,34 @@
 baseURL: https://notes.arnodo.fr/
 title: 🧑‍💻 Notes 
-pagination.pagerSize: 5
-theme: PaperMod
+theme: hextra
+
+menu:
+  main:
+    - name: Documentation
+      pageRef: /documentation
+      weight: 1
+    - name: Netlab
+      pageRef: /netlab
+      weight: 2
+    - name: About
+      pageRef: /about
+      weight: 3
+    - name: Search
+      weight: 4
+      params:
+        type: search
+    - name: GitHub
+      weight: 5
+      url: "https://github.com/darnodo"
+      params:
+        icon: github
 
 params:
-  ShowReadingTime: true
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true  
-
-  socialIcons:
-    - name: github
-      url: "https://github.com/darnodo"
-    - name: linkedin
-      url: "https://www.linkedin.com/in/darnodo/"
-
-languages:
-  en:
-    languageName: English
-    contentDir: 'content/en'
-    params:
-      homeInfoParams:
-        enabled: true
-
-        Title: "Welcome to my Note Book! 🚀"
-        Content: > 
-          Here, we dive into the world of **NetOps, networking, and system automation**—exploring tools, best practices, and hands-on tips to streamline operations.  
-
-    menu:
-      main:
-        - name: Categories
-          url: /categories/
-          weight: 10
-        - name: Tags
-          url: /tags/
-          weight: 20
-        - name: Archives
-          url: archives/
-          weight: 30 
-
-  fr:
-    languageName: Français
-    contentDir: 'content/fr'
-    params:
-      homeInfoParams:
-        enabled: true
-        Title: "Bienvenue sur mon blog ! 🚀"
-        Content: >
-          Ici, nous plongeons dans l’univers du **NetOps, du networking et de l’automatisation des systèmes**, en explorant les outils, les meilleures pratiques et des conseils pratiques pour optimiser les opérations.  
-
-    menu:
-      main:
-        - name: Catégories
-          url: /categories/
-          weight: 10
-        - name: Tags
-          url: /tags/
-          weight: 20
-        - name: Archives
-          url: archives
-          weight: 30 
-
-  
+  # Search
+  search:
+    enable: true
+    type: flexsearch
+    flexsearch:
+      # index page by: content | summary | heading | title
+      index: heading
 
