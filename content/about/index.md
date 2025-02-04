@@ -1,12 +1,6 @@
 ---
-title: "NetOps"
-date: 2024-08-01T15:19:38+02:00
-draft: false
-categories: "Documentations"
-UseHugoToc: true
-TocOpen: false
-showToc: true
-weight: 1
+title: About
+toc: false
 ---
 
 ## Job and Missions of a NetDevOps 🖥️🛠️📡

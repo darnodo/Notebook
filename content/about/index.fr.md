@@ -1,14 +1,7 @@
 ---
-title: "NetOps"
-date: 2024-08-01T15:19:38+02:00
-draft: false
-categories: "Documentations"
-UseHugoToc: true
-TocOpen: false
-showToc: true
-weight: 1
+title: A Propos
+toc: false
 ---
-
 ## Travail et missions d'un NetDevOps 🖥️🛠️📡
 
 Le métier de NetDevOps est relativement nouveau dans l'industrie informatique. Il combine les compétences des développeurs et des opérations réseau pour fournir une infrastructure réseau agile et robuste, et améliorer la qualité de l'expérience utilisateur. Dans cet article, nous allons explorer les missions et les compétences d'un NetDevOps.

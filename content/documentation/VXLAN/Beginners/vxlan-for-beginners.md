@@ -1,6 +1,8 @@
 ---
 title: "VXLAN for Beginners"
 date: 2024-08-01T20:00:00+02:00
+cascade:
+  type: docs
 ---
 
 ## Understanding VLAN and VXLAN: Simplified for Non-Technicians

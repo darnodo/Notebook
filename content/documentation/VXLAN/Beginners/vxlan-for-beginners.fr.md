@@ -1,18 +1,8 @@
 ---
-title: "VXLAN Pour les débutants"
+title: "VXLAN for Beginners"
 date: 2024-08-01T20:00:00+02:00
-draft: false
-categories: "Documentations"
-tags:
-    - Network
-    - VXLAN
-    - Architecture
-UseHugoToc: true
-TocOpen: false
-showToc: true
-cover: 
-  image: "/img/cover_vxlan_dummies.webp"
-  caption: "Building the Future of Networking: Exploring VLANs and VXLANs Across Scalable Digital Landscapes"
+cascade:
+  type: docs
 ---
 
 ## Comprendre VLAN et VXLAN : Simplifié pour les non-techniciens
@@ -72,7 +62,7 @@ L’objectif du **VXLAN** est de **prolonger la couche 2** à travers un réseau
 
 ---
 
-![Couches OSI](couches_materielles.png#center)
+![OSI Layers](media_layers.png#center)
 
 > ✏️ **Les couches “matérielles”**  
 >

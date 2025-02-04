@@ -1,4 +1,6 @@
 ---
+linkTitle: "Netlab"
+title: What is a Netlab
 cascade:
   type: docs
 ---

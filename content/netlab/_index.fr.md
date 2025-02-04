@@ -1,13 +1,8 @@
 ---
 title: "Présentation des NetLabs"
-date: 2024-08-25T15:19:00+02:00
-draft: false
-categories: "NetLab"
-UseHugoToc: true
-TocOpen: false
-showToc: true
-weight: 1
-
+linkTitle: "Netlab"
+cascade:
+  type: docs
 ---
 
 ## Introduction
