@@ -1,5 +1,5 @@
 ---
-title: "VXLAN for Beginners"
+title: "VXLAN pour les débutants"
 date: 2024-08-01T20:00:00+02:00
 cascade:
   type: docs
@@ -12,8 +12,6 @@ Aujourd'hui, nous allons décomposer deux concepts de réseau importants : **VLA
 Nous aborderons également leurs limites, leurs cas d’usage concrets, ainsi que quelques notions techniques pour les plus curieux.  
 
 Allons-y ! 🚀
-
----
 
 ## Qu'est-ce qu'un VLAN ? 🏢
 
@@ -32,8 +30,6 @@ Un **VLAN** fonctionne de manière similaire pour les réseaux informatiques. Il
 - **Limite d’ID :** Historiquement, un VLAN est identifié sur 12 bits, permettant jusqu’à 4094 VLANs (de 1 à 4094). Pour une grande entreprise ou un datacenter, cela peut s’avérer insuffisant.  
 - **Isolation locale :** Les VLANs sont plutôt conçus pour un usage local (un même site ou un ensemble de switches connectés localement). Dès qu’on veut étendre ce concept à plusieurs sites, on a besoin de solutions plus avancées.
 
----
-
 ## Qu'est-ce que le VXLAN ? 🌆
 
 **VXLAN (Virtual Extensible LAN)** va plus loin. Imaginez que votre entreprise grandisse et s'étende à plusieurs immeubles à travers la ville. Vous voulez toujours que les départements se sentent comme s'ils étaient sur leurs propres étages, même s'ils sont maintenant répartis dans différents endroits. Pour ce faire, vous créez un système virtuel qui connecte tous les étages à travers les bâtiments, de sorte que le Marketing au 3e étage d'un bâtiment soit toujours virtuellement connecté au Marketing du 3e étage d'un autre bâtiment.
@@ -45,8 +41,6 @@ Le **VXLAN** fait cela pour les réseaux. Il étend les VLANs à travers plusieu
 - **Évolutivité :** Étend les réseaux à différents emplacements, et dépasse la limite de 4094 VLANs.  
 - **Flexibilité :** Permet des conceptions de réseau plus grandes et dynamiques.  
 - **Connectivité :** Assure une communication fluide à travers des réseaux dispersés.
-
----
 
 ## Plongée technique dans le VXLAN 🔍
 
@@ -60,18 +54,14 @@ L’objectif du **VXLAN** est de **prolonger la couche 2** à travers un réseau
 
 > **En clair :** On encapsule les trames Ethernet (couche 2) dans un paquet UDP (couche 4), lui-même transporté par IP (couche 3).  
 
----
-
 ![OSI Layers](media_layers.png#center)
 
-> ✏️ **Les couches “matérielles”**  
+> [!NOTE]**Les couches “matérielles”**  
 >
 > - La couche **Liaison (2)** est communément gérée par des switches.  
 > - La couche **Réseau (3)** est communément gérée par des routeurs.  
 
 En encapsulant la couche 2 dans la couche 3, on profite des avantages du routage IP (souplesse, scalabilité) tout en conservant l’isolation et la simplicité de la couche 2 pour les applications et machines virtuelles.
-
----
 
 ### VXLAN expliqué par l’analogie du transport de conteneurs 🚚 🚂
 
@@ -87,8 +77,6 @@ Quand il s’agit de couvrir de plus longues distances ou de traverser des infra
 
 Le train roule sur des rails (le **réseau IP**, couche 3). Les voies ferrées sont déjà construites et gérées pour trouver le meilleur itinéraire : elles assurent la convergence des routes et peuvent rediriger le trafic en cas de problème (panne, congestion, etc.). De la même façon, le réseau IP choisit automatiquement le chemin le plus optimal pour transporter les paquets VXLAN.
 
----
-
 ### Points clés à retenir
 
 - **Superposition (Overlay)** : VXLAN est un système de transport « par-dessus » la couche 3 (les rails). Il permet d’interconnecter plusieurs réseaux de niveau 2 (les camions) comme s’ils n’en formaient qu’un seul.  
@@ -100,16 +88,12 @@ Le train roule sur des rails (le **réseau IP**, couche 3). Les voies ferrées s
 
 ![Container transport](transports.png#center)
 
----
-
 ## Cas d'usage concrets 🏭
 
 - **Multi-datacenter :** Pour connecter plusieurs centres de données géographiquement dispersés, tout en gardant la sensation d’un réseau unique au niveau 2.  
 - **Cloud hybride :** Étendre un réseau d’entreprise vers un fournisseur de cloud public ou privé sans reconfigurer tout le plan d’adressage.  
 - **Migration de machines virtuelles :** Permettre la migration (VM Mobility) entre sites distants sans perdre la connectivité de couche 2.  
 - **Virtualisation massive :** Dans les environnements très denses (par ex. des centaines de milliers de machines virtuelles), l’identifiant VNI de 24 bits est indispensable.
-
----
 
 ## Contrôle du VXLAN : BGP EVPN et autres protocoles 🤝
 
@@ -118,14 +102,10 @@ Dans les déploiements modernes, surtout en datacenter, le VXLAN n’est pas sim
 - **BGP EVPN :** Permet d’échanger les informations de tables MAC et IP entre les équipements, facilitant l’automatisation et l’évolutivité.  
 - **Autres technologies :** Historiquement, on pouvait croiser d’autres protocoles d’overlay (NVGRE, STT), mais VXLAN s’est imposé comme standard de fait.
 
----
-
 ## Considérations de performance ⚙️
 
 - **Surcharge d’encapsulation :** Le VXLAN ajoute un en-tête supplémentaire (8 octets + en-tête UDP/IP). Cela peut impacter la **taille maximale de trame (MTU)** et il faut souvent configurer un **Jumbo MTU** (généralement 9000 octets) pour éviter la fragmentation des paquets.  
 - **Résilience du réseau IP :** La fiabilité du tunnel VXLAN dépend de la qualité du réseau IP sous-jacent (routes, congestion, etc.).
-
----
 
 ## Exemple de configuration (pour les plus curieux) 💡
 
@@ -146,8 +126,6 @@ interface nve1
 
 *Note :* Dans les environnements plus complexes, on configure également le plan de contrôle (par ex. BGP EVPN).
 
----
-
 ## En résumé 🎯
 
 - **VLAN**  
@@ -160,17 +138,13 @@ interface nve1
 
 Le **VXLAN** répond aux besoins d'isolation à grande échelle, dépasse les limitations des tables d'adresses MAC des commutateurs et permet un déploiement flexible des services. De plus, associé à un plan de contrôle efficace (BGP EVPN), il simplifie grandement la gestion des réseaux modernes en **overlay**.
 
----
-
 ### Conclusion 🏁
 
 En bref, si vous recherchez une **segmentation de base** pour votre réseau local, un **VLAN** est largement suffisant. Mais dès lors que vous voulez relier plusieurs sites, créer un réseau hautement virtualisé, ou dépasser la limite traditionnelle de 4094 VLANs, le **VXLAN** devient incontournable.
 
 Que vous soyez un passionné de **Lab réseau**, un ingénieur NetOps, ou tout simplement curieux des dessous de l’infrastructure informatique, comprendre ces deux notions vous aidera à mieux appréhender la magie qui se déroule lorsque vos données circulent de plus en plus loin, tout en conservant l’illusion d’être “chez soi” sur le même réseau local !
 
----
-
-> **Envie d’aller plus loin ?**  
+> [!TIP] **Envie d’aller plus loin ?**  
 >
 > - Regardez du côté du **BGP EVPN** pour le plan de contrôle du VXLAN.  
 > - Explorez la **configuration Jumbo MTU** pour optimiser vos performances.  

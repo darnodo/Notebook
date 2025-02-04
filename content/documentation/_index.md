@@ -10,5 +10,6 @@ draft: false
 {{< /hextra/hero-subtitle >}}
 
 {{< cards >}}
-  {{< card link="https://containerlab.dev/install/" title="ContainerLab" subtitle="How to install ContainerLab" icon="endpoints" >}}  
+  {{< card link="https://containerlab.dev/install/" title="ContainerLab" subtitle="How to install ContainerLab" icon="endpoints" >}}
+  {{< card link="https://devpod.sh" title="DevPod" subtitle="Easy way to deploy Lab" icon="git" >}}  
 {{< /cards >}}
