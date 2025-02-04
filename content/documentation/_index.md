@@ -4,6 +4,7 @@ cascade:
   type: docs
 draft: false
 ---
+<!-- markdownlint-disable MD033 MD034-->
 
 {{< hextra/hero-subtitle >}}
   Comprehensive Documentation and Step-by-Step "How-To" Guides

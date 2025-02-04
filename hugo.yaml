@@ -41,3 +41,7 @@ params:
       # index page by: content | summary | heading | title
       index: heading
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
