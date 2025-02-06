@@ -1,61 +1,68 @@
 ---
-title: "Self-Hosted Certificat Manager"
+title: "Self-Hosted Certificate Manager"
 date: 2024-08-01T20:00:00+02:00
 cascade:
   type: docs
 ---
 
-## Sources
+## 🔗 Sources
 
-- [Official Documentation](https://smallstep.com/docs/tutorials/)
-- [Step-Ca as a systemd service](https://angrysysadmins.tech/index.php/2022/09/grassyloki/step-ca-run-as-a-systemd-service/)
-- [OpenSSL Certificate Management](https://www.golinuxcloud.com/tutorial-pki-certificates-authority-ocsp/)
+- [📖 Official Documentation](https://smallstep.com/docs/tutorials/)
+- [🛠️ Step-CA as a systemd Service](https://angrysysadmins.tech/index.php/2022/09/grassyloki/step-ca-run-as-a-systemd-service/)
+- [🔐 OpenSSL Certificate Management](https://www.golinuxcloud.com/tutorial-pki-certificates-authority-ocsp/)
 
-## About Step-CA
+## 🤖 About Step-CA
 
-Step-CA is a set of tools developed by Smallstep, a company specializing in secure identity management and certificate automation. Step-CA aims to simplify the process of setting up and managing certificate authorities (CAs) by providing a user-friendly and secure infrastructure.
+Step-CA is a nifty toolkit developed by Smallstep, a company that’s all about secure identity management and certificate automation. 🚀 Its mission? To simplify setting up and managing your own certificate authorities (CAs) with ease and security!
 
-The Step-CA toolkit offers several key features:
+### Key Features
 
-1. Certificate Authority Management: Step-CA allows users to easily set up and manage their own certificate authorities. It provides tools for creating root and intermediate CAs, issuing certificates, and managing certificate revocations.
+1. **Certificate Authority Management** 🔑  
+   Easily set up and manage your own CAs. Create root and intermediate CAs, issue certificates, and handle revocations like a pro.
 
-2. Secure Key Management: Step-CA incorporates best practices for secure key management. It offers secure storage and management of cryptographic keys, ensuring their protection against unauthorized access and tampering.
+2. **Secure Key Management** 🛡️  
+   Best practices for secure key storage and management, ensuring your cryptographic keys stay safe and sound from unauthorized access.
 
-3. Automation and Scalability: Step-CA supports automation and scalability, making it suitable for both small-scale and large-scale deployments. It provides APIs and integrations that allow for automated certificate issuance, renewal, and revocation, streamlining the certificate lifecycle management process.
+3. **Automation and Scalability** ⚙️  
+   Perfect for both small-scale and enterprise deployments. Enjoy APIs and integrations that automate certificate issuance, renewal, and revocation for a seamless lifecycle.
 
-4. Enhanced Security: Step-CA prioritizes security and employs modern cryptographic algorithms and protocols. It supports industry-standard X.509 certificates and provides strong encryption and digital signatures to ensure the integrity and authenticity of certificates.
+4. **Enhanced Security** 🔒  
+   Using modern cryptographic algorithms and protocols, Step-CA supports industry-standard X.509 certificates, offering robust encryption and digital signatures.
 
-5. Integration with Infrastructure: Step-CA integrates seamlessly with existing infrastructure and tools. It supports various authentication mechanisms, including traditional username/password, multi-factor authentication, and integration with external identity providers.
+5. **Integration with Infrastructure** 🌐  
+   Integrates smoothly with your existing tools and systems. Supports various authentication methods like username/password, MFA, and external identity providers.
 
-6. Auditability and Compliance: Step-CA offers comprehensive logging and auditing capabilities, allowing organizations to track and monitor certificate issuance and management activities. This helps meet compliance requirements and enables investigation in case of security incidents.
+6. **Auditability and Compliance** 📜  
+   With comprehensive logging and auditing capabilities, you can track certificate activities and meet compliance requirements with ease.
 
-7. Developer-Friendly APIs: Step-CA provides developer-friendly APIs and SDKs, enabling easy integration into custom applications and workflows. This allows developers to incorporate certificate management capabilities into their software with minimal effort.
+7. **Developer-Friendly APIs** 👩‍💻👨‍💻  
+   Developer-centric APIs and SDKs make it a breeze to integrate certificate management into your custom applications and workflows.
 
-In summary, Step-CA from Smallstep is a toolkit designed to simplify the management of certificate authorities. It offers secure and scalable infrastructure for setting up and managing CAs, with a focus on automation, security, and integration. With its user-friendly features and developer-friendly APIs, Step-CA enables organizations to efficiently manage their certificate lifecycle and enhance the security of their infrastructure.
+**In a nutshell:** Step-CA from Smallstep is designed to make certificate authority management fun and hassle-free. With its secure, scalable, and user-friendly features, you can easily manage your certificate lifecycle while keeping your infrastructure safe and sound!
 
-## Installation
+## 🚀 Installation
 
-### Binairy Installation
+### 🔧 Binary Installation
 
-1. Step CLI :
+#### 1. Step CLI
 
-    ```bash
-    wget https://dl.step.sm/gh-release/cli/docs-cli-install/v0.24.3/step-cli_0.24.3_amd64.deb
-    sudo dpkg -i step-cli_0.24.3_amd64.deb
-    ```
+```bash
+wget https://dl.step.sm/gh-release/cli/docs-cli-install/v0.24.3/step-cli_0.24.3_amd64.deb
+sudo dpkg -i step-cli_0.24.3_amd64.deb
+```
 
-2. Step-ca :
+#### 2. Step-CA
 
-    ```bash
-    wget https://dl.step.sm/gh-release/certificates/docs-ca-install/v0.24.1/step-ca_0.24.1_amd64.deb
-    sudo dpkg -i step-ca_0.24.1_amd64.deb
-    ```
+```bash
+wget https://dl.step.sm/gh-release/certificates/docs-ca-install/v0.24.1/step-ca_0.24.1_amd64.deb
+sudo dpkg -i step-ca_0.24.1_amd64.deb
+```
 
-3. Create a specific user
+#### 3. Create a Specific User
 
-    ```bash
-    adduser adminCA
-    ```
+```bash
+adduser adminCA
+```
 
 #### Configuration
 
@@ -72,30 +79,25 @@ What would you like to name the CA's first provisioner?
 Choose a password for your CA keys and first provisioner.
 ✔ [leave empty and we'll generate one]: 
 
-Generating root certificate... done!
-Generating intermediate certificate... done!
+Generating root certificate... done! 🎉
+Generating intermediate certificate... done! 🎊
 
-✔ Root certificate: /home/adminCA/.step/certs/root_ca.crt
-✔ Root private key: /home/adminCA/.step/secrets/root_ca_key
-✔ Root fingerprint: 7d754397c6897aa87d21e33c64daad7be087dc6fe18bf04627848ae1c8e26a4f
-✔ Intermediate certificate: /home/adminCA/.step/certs/intermediate_ca.crt
-✔ Intermediate private key: /home/adminCA/.step/secrets/intermediate_ca_key
-✔ Database folder: /home/adminCA/.step/db
-✔ Default configuration: /home/adminCA/.step/config/defaults.json
-✔ Certificate Authority configuration: /home/adminCA/.step/config/ca.json
+✔ Root certificate: /home/adminCA/.step/certs/root_ca.crt  
+✔ Root private key: /home/adminCA/.step/secrets/root_ca_key  
+✔ Root fingerprint: 7d754397c6897aa87d21e33c64daad7be087dc6fe18bf04627848ae1c8e26a4f  
+✔ Intermediate certificate: /home/adminCA/.step/certs/intermediate_ca.crt  
+✔ Intermediate private key: /home/adminCA/.step/secrets/intermediate_ca_key  
+✔ Database folder: /home/adminCA/.step/db  
+✔ Default configuration: /home/adminCA/.step/config/defaults.json  
+✔ Certificate Authority configuration: /home/adminCA/.step/config/ca.json  
 
-Your PKI is ready to go. To generate certificates for individual services see 'step help ca'.
+Your PKI is all set! To generate certificates for individual services, check out `step help ca`.
 
-FEEDBACK  
-  The step utility is not instrumented for usage statistics. It does not phone
-  home. But your feedback is extremely valuable. Any information you can provide
-  regarding how you’re using `step` helps. Please send us a sentence or two,
-  good or bad at feedback@smallstep.com or join GitHub Discussions
-  https://github.com/smallstep/certificates/discussions and our Discord 
-  https://u.step.sm/discord.
+💌 **FEEDBACK**  
+The step utility is not instrumented for usage statistics. It doesn’t phone home. But your feedback is super valuable! Feel free to drop us a line at feedback@smallstep.com, join GitHub Discussions, or hop into our Discord at [https://u.step.sm/discord](https://u.step.sm/discord).
 ```
 
-Start CA Step :
+Start CA Step:
 
 ```bash
 step-ca .step/config/ca.json
@@ -107,19 +109,18 @@ step-ca .step/config/ca.json
 $ step ca provisioner add acme --type ACME
 ✔ CA Configuration: /home/adminCA/.step/config/ca.json
 
-Success! Your `step-ca` config has been updated. To pick up the new configuration SIGHUP (kill -1 <pid>) or restart the step-ca
- process.$
+Success! Your `step-ca` config has been updated. To pick up the new configuration, SIGHUP (kill -1 <pid>) or restart the step-ca process. 🎉
 ```
 
-#### Run Step-CA as a systemd service
+#### Run Step-CA as a systemd Service
 
-Create a file :
+Create a file:
 
 ```bash
 vim /etc/systemd/system/step-ca.service
 ```
 
-Copy and paste :
+Copy and paste the following:
 
 ```config
 [Unit]
@@ -138,55 +139,63 @@ RestartSec=10
 WantedBy=multi-user.target
 ```
 
-Create log dir :
+Create the log directory:
 
 ```bash
 mkdir -p /var/log/step-ca
 chown -R adminCA:adminCA /var/log/step-ca
 ```
 
-Reload Daemon :
+Reload the daemon:
 
 ```bash
 systemctl daemon-reload
 systemctl start step-ca.service
 ```
 
-### Docker Installation
+### 🐳 Docker Installation
 
 ```bash
 docker run -it -v step:/home/step \
     -p 9000:9000 \
     -e "DOCKER_STEPCA_INIT_NAME=Lab" \
-    -e "DOCKER_STEPCA_INIT_DNS_NAMES=caserver.lab.loc,localhost,192.168.1.101 \
+    -e "DOCKER_STEPCA_INIT_DNS_NAMES=caserver.lab.loc,localhost,192.168.1.101" \
     -e "DOCKER_STEPCA_INIT_REMOTE_MANAGEMENT=true" \
     -e "DOCKER_STEPCA_INIT_ACME=true" \
     smallstep/step-ca
 ```
 
-## Access To CA with an another client
+## 🔑 Access to CA with Another Client
 
-> [!NOTE] Note
-> It is necessary to adapt the port according to the installation:
+> **NOTE:**  
+> Adjust the port based on your installation:  
 >
-> - Binary: port **443**
-> - Docker: port **9000**
+> - **Binary:** port **443**  
+> - **Docker:** port **9000**
+
+Install the Step CLI:
 
 ```bash
 wget https://dl.step.sm/gh-release/cli/docs-cli-install/v0.24.3/step-cli_0.24.3_amd64.deb
 sudo dpkg -i step-cli_0.24.3_amd64.deb
+```
 
+Bootstrap your CA:
+
+```bash
 step ca bootstrap --ca-url https://caserver.lab.loc:$PORT/ --fingerprint 685059c30eb305db5272a7a199a2b5823624d55c732121ac65c06b0915d3c887
 ```
 
->[!TIP] Tips  
-> In order to obtain the **fingerprint** it is enough to use the following command:
+> **TIP:**  
+> To get the **fingerprint**, simply run:
 >
 > ```bash
 > step certificate fingerprint $(step path)/certs/root_ca.crt
 > ```
 >
-> For Docker : check the container logs
+> For Docker, check the container logs.
+
+Example output:
 
 ```bash
 admin@User:~$ step ca bootstrap --ca-url https://caserver.lab.loc:$PORT --fingerprint 685059c30eb305db5272a7a199a2b5823624d55c732121ac65c06b0915d3c887
@@ -194,7 +203,7 @@ The root certificate has been saved in /home/admin/.step/certs/root_ca.crt.
 The authority configuration has been saved in /home/admin/.step/config/defaults.json.
 ```
 
-And install :
+Install the certificate:
 
 ```bash
 step certificate install $(step path)/certs/root_ca.crt
@@ -202,46 +211,45 @@ step certificate install $(step path)/certs/root_ca.crt
 
 ---
 
->[!TIP] Tips  
-> **Debian Installation:**
+> **TIP:**  
+> **Debian Installation:**  
 >
-> - Copy individual CRT (in PEM format) files to `/usr/local/share/ca-certificates/`
-> - Files must be own bu `root:root` and mode `644`
-> - Check that the package `ca-certificates` is installed, if not install it
-> - Then run as root :
+> - Copy individual CRT (PEM format) files to `/usr/local/share/ca-certificates/`  
+> - Files must be owned by `root:root` with mode `644`  
+> - Ensure the package `ca-certificates` is installed (if not, install it)  
+> - Then run as root:
 >
 > ```bash
 > # /usr/sbin/update-ca-certificates
 > ```
 >
-> - All the certificates will be consolidated at : `/etc/ssl/certs/ca-certificates.crt`
->
+> All certificates will be consolidated at: `/etc/ssl/certs/ca-certificates.crt`
 
 ---
 
-### Get a certificat
+### 📝 Get a Certificate
 
 ```bash
 admin@User:~$ step ca certificate nas.lab.loc srv.crt srv.key
 ✔ Provisioner: contact@lab.loc (JWK) [kid: chyGkrZqp-BGSHUZ8v3jsPipegt2JLcC7y6RPq4OOkU]
-Please enter the password to decrypt the provisioner key: 
+Please enter the password to decrypt the provisioner key:
 ✔ CA: https://caserver.lab.loc:443
 ✔ Certificate: srv.crt
 ✔ Private Key: srv.key
 ```
 
 ---
->[!TIP] Tips  
->To health check :
+
+> **TIP:**  
+> To perform a health check:
 >
->```bash
->curl https://caserver.lab.loc:443/health -k
->```
->
+> ```bash
+> curl https://caserver.lab.loc:443/health -k
+> ```
 
 ---
 
-It can be necessairy to customise `ca.json` file to  increase the minimum duration of the certificate validity.
+It might be necessary to customize the `ca.json` file to increase the minimum duration of the certificate validity. Check out the folder structure below:
 
 ```bash
 .
@@ -263,6 +271,8 @@ It can be necessairy to customise `ca.json` file to  increase the minimum durati
 |   `-- root_ca_key
 `-- templates
 ```
+
+Example `ca.json` file:
 
 ```json
 {

@@ -1,5 +1,5 @@
-baseURL: https://notes.arnodo.fr/
-title: 🧑‍💻 Notes 
+baseURL: https://notebook.arnodo.fr/
+title: 🧑‍💻 Notebook 
 theme: hextra
 
 defaultContentLanguage: en
@@ -33,6 +33,16 @@ menu:
         icon: github
 
 params:
+  # Navbar
+  navbar:
+    displayTitle: true
+    displayLogo: true
+  # Logo
+  logo:
+    path: images/network.svg
+    link: /
+    width: 40
+    height: 20
   # Search
   search:
     enable: true
