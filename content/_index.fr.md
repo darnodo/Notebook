@@ -1,17 +1,15 @@
 ---
+
 title: Damien's NoteBook
 layout: hextra-home
-disableSidebar: false
-type: default
-width: normal
-cascade:
-  type: docs
+
 ---
+
 <!-- markdownlint-disable MD033 MD034-->
 
 <div class="hx-mt-6 hx-mb-6">
 {{< hextra/hero-headline >}}
-  Bloc Note Personnel
+  Bloc Note Personnel  
   pour les NetDevOps et SRE
 {{< /hextra/hero-headline >}}
 </div>

@@ -1,12 +1,10 @@
 ---
+
 title: Damien's NoteBook
 layout: hextra-home
-disableSidebar: false
-type: default
-width: normal
-cascade:
-  type: docs
+
 ---
+
 <!-- markdownlint-disable MD033 MD034-->
 
 <div class="hx-mt-6 hx-mb-6">

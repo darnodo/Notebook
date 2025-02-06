@@ -37,12 +37,12 @@ params:
   navbar:
     displayTitle: true
     displayLogo: true
-  # Logo
-  logo:
-    path: images/network.svg
-    link: /
-    width: 40
-    height: 20
+    # Logo
+    logo:
+      path: images/logo.svg
+      link: /
+      width: 40
+      height: 20
   # Search
   search:
     enable: true
