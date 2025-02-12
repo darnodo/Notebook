@@ -1,6 +1,7 @@
 ---
 title: "Self-Hosted Certificate Manager"
 date: 2024-08-01T20:00:00+02:00
+weight: 2
 cascade:
   type: docs
 ---
