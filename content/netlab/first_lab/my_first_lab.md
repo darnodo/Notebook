@@ -1,9 +1,7 @@
 ---
-
 title: "My First Lab"
 cascade:
   type: docs
-
 ---
 
 ## Introduction
@@ -21,4 +19,4 @@ Our main objectif here shoulb be to deploie this lab on **AWS** using devpod.
 ## Prerequisite
 
 Before make it works, we have to authorized devpod to access to our AWS environment.  
-We will, at the first step, create a specific IAM role to permit to DevPod to managed the instance.  
+We will, at the first step, configure DevPod, I've already write a post on this [topic](/documentation/devpod).
