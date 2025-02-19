@@ -40,7 +40,7 @@ params:
     # Logo
     logo:
       path: images/logo.svg
-      link: /
+      link: /Notebook/
       width: 40
       height: 20
   # Search
