@@ -169,8 +169,7 @@ docker run -it -v step:/home/step \
 
 ## 🔑 Accès à l'AC avec un Autre Client
 
-> **NOTE :**  
-> Adaptez le port en fonction de votre installation :  
+> [!NOTE] Adaptez le port en fonction de votre installation :  
 >
 > - **Binaire :** port **443**  
 > - **Docker :** port **9000**
@@ -188,8 +187,7 @@ Initialisez votre AC :
 step ca bootstrap --ca-url https://caserver.lab.loc:$PORT/ --fingerprint 685059c30eb305db5272a7a199a2b5823624d55c732121ac65c06b0915d3c887
 ```
 
-> **ASTUCE :**  
-> Pour obtenir l'**empreinte**, exécutez simplement :
+> [!TIP] Pour obtenir l'**empreinte**, exécutez simplement :
 >
 > ```bash
 > step certificate fingerprint $(step path)/certs/root_ca.crt
@@ -213,8 +211,7 @@ step certificate install $(step path)/certs/root_ca.crt
 
 ---
 
-> **ASTUCE :**  
-> **Installation sur Debian :**  
+> [!TIP] **Installation sur Debian :**  
 >
 > - Copiez les fichiers CRT individuels (format PEM) dans `/usr/local/share/ca-certificates/`  
 > - Les fichiers doivent appartenir à `root:root` avec les droits `644`  
@@ -242,8 +239,7 @@ Veuillez entrer le mot de passe pour déchiffrer la clé du provisionneur :
 
 ---
 
-> **ASTUCE :**  
-> Pour effectuer un test de santé :
+> [!TIP] Pour effectuer un test de santé :
 >
 > ```bash
 > curl https://caserver.lab.loc:443/health -k

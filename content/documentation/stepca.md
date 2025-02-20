@@ -168,8 +168,7 @@ docker run -it -v step:/home/step \
 
 ## 🔑 Access to CA with Another Client
 
-> **NOTE:**  
-> Adjust the port based on your installation:  
+> [!NOTE] Adjust the port based on your installation:  
 >
 > - **Binary:** port **443**  
 > - **Docker:** port **9000**
@@ -187,8 +186,7 @@ Bootstrap your CA:
 step ca bootstrap --ca-url https://caserver.lab.loc:$PORT/ --fingerprint 685059c30eb305db5272a7a199a2b5823624d55c732121ac65c06b0915d3c887
 ```
 
-> **TIP:**  
-> To get the **fingerprint**, simply run:
+> [!TIP] To get the **fingerprint**, simply run:
 >
 > ```bash
 > step certificate fingerprint $(step path)/certs/root_ca.crt
@@ -212,8 +210,7 @@ step certificate install $(step path)/certs/root_ca.crt
 
 ---
 
-> **TIP:**  
-> **Debian Installation:**  
+> [!TIP]  **Debian Installation:**  
 >
 > - Copy individual CRT (PEM format) files to `/usr/local/share/ca-certificates/`  
 > - Files must be owned by `root:root` with mode `644`  
@@ -241,8 +238,7 @@ Please enter the password to decrypt the provisioner key:
 
 ---
 
-> **TIP:**  
-> To perform a health check:
+> [!TIP] To perform a health check:
 >
 > ```bash
 > curl https://caserver.lab.loc:443/health -k

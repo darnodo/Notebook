@@ -66,11 +66,11 @@ Dans mes aventures quotidiennes en réseau, je déploie des configurations basé
 
 DevPod utilise des **Providers** (fournisseurs), qui sont des modules de configuration définissant où et comment DevPod lance votre environnement. Voici la liste des fournisseurs :
 
-![Provider_list](provider.png#center)
+![Provider_list](provider.fr.png#center)
 
 Nous allons nous concentrer sur le **Provider AWS** — bien qu'il existe de nombreuses options de configuration :
 
-![Provider_list](aws_options.png#center)
+![Provider_list](aws_options.fr.png#center)
 
 Avant de paniquer devant tous ces réglages, ne vous inquiétez pas. Si vous ne faites que quelques expérimentations, les valeurs par défaut conviennent généralement. 🙌
 
@@ -245,7 +245,7 @@ Retournez dans **Users** → **devpod-tool-user** → **Permissions** pour confi
 
 - Si vous avez créé un utilisateur programmatique, n'oubliez pas de noter l'**Access Key ID** et le **Secret Access Key**.
 
-![devpod_user_sumup](devpod_user.png#center)
+![devpod_user_sumup](devpod_user.fr.png#center)
 
 **Bonus** : Notez votre **ID VPC** (dans la section VPC sur AWS). Vous en aurez besoin lors de la configuration de DevPod.
 
@@ -277,7 +277,7 @@ Lorsqu'on vous le demande :
 
 Cliquez sur **Add Provider**.
 
-![added_new_provider](new_provider.png#center)
+![added_new_provider](new_provider.fr.png#center)
 
 ## Tester un déploiement 🧪
 
@@ -292,23 +292,23 @@ Nous allons effectuer un test rapide en utilisant l'une des images Docker préco
 5. À droite, sélectionnez un exemple de démarrage rapide (par exemple, Python). 🐍
 6. Cliquez sur **Create Workspace**.
 
-![new_worspace](new_worskapce.png#center)
+![new_worspace](new_worskapce.fr.png#center)
 
 Attendez quelques instants, et votre environnement basé sur le cloud apparaîtra dans VS Code. 🎊
 
-![vscode](vscode.png#center)
+![vscode](vscode.fr.png#center)
 
 ### Arrêter
 
 Lorsque vous n'utilisez pas l'environnement, cliquez sur **Stop** pour éteindre l'instance EC2. Vous ne paierez que pour le stockage — aucun temps de calcul. Idéal pour votre portefeuille. 💰
 
-![Stopped Instance](stopped_instance.png#center)
+![Stopped Instance](stopped_instance.fr.png#center)
 
 ### Supprimer
 
 Supprimer le workspace supprime toutes les ressources AWS associées à cet environnement, vous ne paierez donc pas un centime. Mais vous devrez redéployer si vous souhaitez l'utiliser à nouveau. ♻️
 
-![Delete Instance](delete_instance.png#center)
+![Delete Instance](delete_instance.fr.png#center)
 
 ## Conclusion 💡
 

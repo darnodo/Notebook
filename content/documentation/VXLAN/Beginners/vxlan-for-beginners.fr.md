@@ -54,7 +54,7 @@ L’objectif du **VXLAN** est de **prolonger la couche 2** à travers un réseau
 
 > **En clair :** On encapsule les trames Ethernet (couche 2) dans un paquet UDP (couche 4), lui-même transporté par IP (couche 3).  
 
-![OSI Layers](media_layers.png#center)
+![OSI Layers](media_layers.fr.png#center)
 
 > [!NOTE]**Les couches “matérielles”**  
 >
@@ -86,7 +86,7 @@ Le train roule sur des rails (le **réseau IP**, couche 3). Les voies ferrées s
 - **Isolation et segmentation** : Comme plusieurs trains peuvent rouler sur la même ligne ferroviaire, il est possible d’exploiter différents tunnels VXLAN (chacun avec son VNI) sur la même infrastructure IP.  
 - **Élasticité et fiabilité** : En s’appuyant sur la couche 3, VXLAN profite de toutes les optimisations du routage IP (recalcul d’itinéraires, tolérance aux pannes, etc.).  
 
-![Container transport](transports.png#center)
+![Container transport](transports.fr.png#center)
 
 ## Cas d'usage concrets 🏭
 

@@ -41,7 +41,7 @@ Notre lab simulera une topologie VXLAN comprenant :
 
 Le diagramme suivant illustre la topologie VXLAN :
 
-![Topologie VXLAN](VXLAN.svg#center)
+![Topologie VXLAN](VXLAN.fr.svg#center)
 
 Voici le fichier de topologie Containerlab (`lab_vxlan.yml`) utilisé pour cette configuration :
 
@@ -124,7 +124,7 @@ Nous allons déployer le lab avec **DevPod** de deux manières :
    - Choisissez votre IDE par défaut.
    - Enfin, cliquez sur **Create Workspace**.
 
-   ![Configuration DevPod](devpod_configuration.png#center)
+   ![Configuration DevPod](devpod_configuration.fr.png#center)
 
 ### 2. En Utilisant un Dossier Local 🗂️
 
@@ -133,7 +133,7 @@ Si vous préférez utiliser votre dépôt local :
 - La seule différence se trouve dans la **source du Workspace**.
 - Il vous suffit de le pointer vers votre dépôt local.
 
-   ![Configuration DevPod - Local](devpod_configuration_local.png#center)
+   ![Configuration DevPod - Local](devpod_configuration_local.fr.png#center)
 
 ## Démarrer le Lab 🎬
 
@@ -167,7 +167,7 @@ Si vous préférez utiliser votre dépôt local :
 
    Les ports (par exemple, le port 50080 mentionné dans le `devcontainer.json`) sont redirigés. Accédez à la vue graphique via [localhost](http://localhost:50080).
 
-   ![Vue Graphique](Graph_view.png#center)
+   ![Vue Graphique](Graph_view.fr.png#center)
 
 ## Utiliser EdgeShark 🦈
 
@@ -197,12 +197,12 @@ DOCKER_DEFAULT_PLATFORM= docker compose up -d
 Accédez à EdgeShark via [localhost:5001](http://localhost:5001).
 
 - **Vue d'EdgeShark** :  
-  ![Vue d'EdgeShark](edgeshark.png#center)
+  ![Vue d'EdgeShark](edgeshark.fr.png#center)
 
 - **Intégration avec Wireshark** :  
   En cliquant sur l'icône Wireshark dans EdgeShark, vous pouvez lancer Wireshark localement.  
-  ![Interface EdgeShark](edgeshark_interface.png#center)  
-  ![EdgeShark et Wireshark](edge_wireshark.png#center)
+  ![Interface EdgeShark](edgeshark_interface.fr.png#center)  
+  ![EdgeShark et Wireshark](edge_wireshark.fr.png#center)
 
 ## Conclusion 🎉
 
