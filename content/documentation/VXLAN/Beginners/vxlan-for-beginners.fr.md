@@ -3,6 +3,7 @@ title: "VXLAN pour les débutants"
 date: 2024-08-01T20:00:00+02:00
 cascade:
   type: docs
+  
 ---
 
 ## Comprendre VLAN et VXLAN : Simplifié pour les non-techniciens
