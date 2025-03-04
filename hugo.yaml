@@ -1,6 +1,5 @@
 baseURL: "https://darnodo.github.io/Notebook/"
 title: 🧑‍💻 Notebook 
-relativeURLs: true
 theme: hextra
 
 defaultContentLanguage: en
