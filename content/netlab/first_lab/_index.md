@@ -23,7 +23,7 @@ Additionally, we will use a small topology, which you can find on my [GitHub rep
 Before we get started, there are a couple of important steps to complete:
 
 1. **AWS Environment Authorization**:  
-   Ensure that DevPod is authorized to access your AWS environment. For a detailed guide on configuring DevPod with AWS, please refer to my post on this [topic](/documentation/devpod). 🔑
+   Ensure that DevPod is authorized to access your AWS environment. For a detailed guide on configuring DevPod with AWS, please refer to my post on this [topic](/Notebook/documentation/devpod). 🔑
 
 2. **Containerlab Topology**:  
    We need a topology file that Containerlab can understand. In our case, we're building a simple VXLAN topology. 🗺️
@@ -112,7 +112,7 @@ We will deploy the lab using **DevPod** in two ways:
 ### 1. Using the Repository 📥
 
 1. **Validate AWS Provider Configuration**:  
-   Ensure that your AWS provider is correctly configured. More details can be found [here](/documentation/devpod). ✅
+   Ensure that your AWS provider is correctly configured. More details can be found [here](/Notebook/documentation/devpod). ✅
 
 2. **Create a Workspace**:  
    - Navigate to the **Workspace** tab and click on **Create Workspace**.
