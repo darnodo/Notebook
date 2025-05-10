@@ -9,7 +9,7 @@ layout: hextra-home
 
 <div class="hx-mt-6 hx-mb-6">
 {{< hextra/hero-headline >}}
-  Bloc Note Personnel  
+  BlocNote Personnel  
   pour les NetDevOps et SRE
 {{< /hextra/hero-headline >}}
 </div>
@@ -43,3 +43,10 @@ layout: hextra-home
     style="background: radial-gradient(ellipse at 50% 80%,rgba(203, 28, 66, 0.1),hsla(0,0%,100%,0));"
   >}}
 {{< /hextra/feature-grid >}}
+
+<div class="hx-mt-12 hx-mb-6">
+  <h2 class="hx-text-right hx-text-3xl hx-font-semibold hx-text-gray-900 dark:hx-text-gray-100 hx-mb-4">
+    Technologies utilisés
+  </h2>
+  <img src="images/tech-banner.png" alt="Technologies utilisées" class="hx-mx-auto hx-max-w-full hx-h-auto" />
+</div>

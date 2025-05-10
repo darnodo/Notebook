@@ -1,15 +1,9 @@
-baseURL: "https://darnodo.github.io/Notebook/"
+baseURL: "https://darnodo.github.io/Notebook"
 title: 🧑‍💻 Notebook 
 theme: hextra
 
-defaultContentLanguage: en
-languages:
-  en:
-    languageName: English
-    weight: 1
-  fr:
-    languageName: Français
-    weight: 2
+defaultContentLanguage: fr
+languageCode: fr
 
 menu:
   main:
@@ -40,7 +34,6 @@ params:
     # Logo
     logo:
       path: images/logo.svg
-      link: /Notebook/
       width: 40
       height: 20
   # Search

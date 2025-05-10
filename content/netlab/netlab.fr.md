@@ -1,5 +1,6 @@
 ---
 title: "Présentation des NetLabs"
+weight: 1
 cascade:
   type: docs
 ---

@@ -1,31 +1,29 @@
----
-title: A Propos
-toc: false
----
-## Travail et missions d'un NetDevOps 🖥️🛠️📡
+# À propos de moi
 
-Le métier de NetDevOps est relativement nouveau dans l'industrie informatique. Il combine les compétences des développeurs et des opérations réseau pour fournir une infrastructure réseau agile et robuste, et améliorer la qualité de l'expérience utilisateur. Dans cet article, nous allons explorer les missions et les compétences d'un NetDevOps.
+🚀 En tant que **spécialiste de l'automatisation réseau chez Airbus** — un acteur majeur du **secteur aéronautique** — je me consacre à **simplifier les opérations réseau**, **réduire les erreurs** et **renforcer la fiabilité** grâce à des **stratégies d'automatisation intelligentes et innovantes**.
 
-NetDevOps, ou Network Development Operations, est un concept basé sur l'intégration de la culture DevOps dans la gestion et la maintenance des réseaux informatiques. Il s'agit d'appliquer les pratiques DevOps à la gestion des réseaux, telles que l'automatisation, la collaboration et l'amélioration continue.
+Avant cela, j’ai construit une **solide base en ingénierie réseau** chez **Nokia et Orange**. Avec le temps, ma **passion pour l’innovation** m’a naturellement mené vers l’**automatisation réseau** — et je ne suis jamais revenu en arrière ! 💡🤖
 
-## Missions 🎯
+Je suis aussi un **grand adepte de l’apprentissage continu** 📚. Au sein de mon équipe, j’encourage une **culture de la croissance collective**, du **partage des connaissances** et de la **curiosité permanente**. Car au final, **la tech évolue vite — et nous devons en faire autant !** 🌱✨
 
-Les missions d'un NetDevOps sont multiples et variées. En voici quelques-unes :
+## Parcours professionnel
 
-1. Développement et déploiement d'infrastructures réseau 🏗️ : Le NetDevOps développe des infrastructures réseau évolutives et flexibles. Il travaille en étroite collaboration avec les équipes de développement et d'opérations pour mettre en œuvre des solutions répondant aux besoins de l'entreprise. Le NetDevOps est également responsable de la configuration et du déploiement des équipements réseau.
-2. Automatisation des tâches réseau 🤖 : L'automatisation est un élément clé du travail de NetDevOps. Il utilise des outils d'automatisation pour simplifier et accélérer les tâches répétitives telles que la configuration, la mise à jour, la surveillance et la maintenance du réseau.
-3. Gestion de la sécurité réseau 🔒 : La sécurité est une préoccupation majeure pour les entreprises. Le NetDevOps travaille en collaboration avec les équipes de sécurité pour mettre en œuvre des solutions protégeant le réseau contre les cyberattaques. Il établit également des protocoles de sécurité pour garantir la confidentialité et l'intégrité des données.
-4. Surveillance des performances réseau 🕵️ : Le NetDevOps surveille en continu les performances du réseau pour identifier d'éventuels problèmes et prendre les mesures nécessaires pour les résoudre. Il analyse les données de performance pour optimiser les performances du réseau.
+🧑‍💻 **Spécialiste de l'automatisation réseau @ Airbus**
 
-## Compétences 🤹
+Depuis 2023, je travaille chez **Airbus** à Toulouse en tant que **Connectivity Automation Technology Specialist**. Ma mission ? ✨ **Rendre les réseaux plus intelligents et plus fiables** grâce à l’automatisation. Il s’agit d’optimiser l’efficacité, de réduire les erreurs et de construire des systèmes robustes — aussi bien dans les airs qu’au sol ! 🌐✈️
 
-Les compétences d'un NetDevOps sont variées et comprennent :
+🔧 **Plus de 6 ans chez Nokia**
 
-1. Connaissance approfondie des technologies réseau 📚 : Le NetDevOps doit avoir une connaissance approfondie des technologies réseau telles que les protocoles de routage, les VLAN, les VPN, les pare-feu, etc.
-2. Compétences en développement 🧑‍💻 : Le NetDevOps doit avoir des compétences en développement pour créer des scripts et automatiser les tâches réseau.
-3. Compétences en gestion de projet 📅 : Le NetDevOps doit avoir des compétences en gestion de projet pour gérer les projets de développement et de déploiement d'infrastructures réseau.
-4. Compétences en communication 🗣️ : Le NetDevOps doit avoir de bonnes compétences en communication pour collaborer avec les équipes de développement et d'opérations, ainsi qu'avec les parties prenantes de l'entreprise.
+Chez **Nokia**, je me suis spécialisé dans l’**ingénierie des réseaux d’accès**. J’ai conçu des configurations hautes performances, validé de nouvelles technologies comme la **5G et la fibre**, et dirigé des projets clients. J’ai aussi accompagné les équipes et formé les nouveaux arrivants 👨‍🏫. Ce fut une excellente école pour l’**architecture**, la **fiabilité** et la **résolution de problèmes concrets**.
 
-## Conclusion 📝
+🧠 **Mes débuts réseaux chez Orange & au-delà**
 
-En conclusion, le métier de NetDevOps est essentiel pour fournir une infrastructure réseau agile et robuste répondant aux besoins de l'entreprise. Le NetDevOps doit avoir une connaissance approfondie des technologies réseau, des compétences en développement, des compétences en gestion de projet et des compétences en communication pour réussir dans ce domaine. 🌟
+J’ai commencé mon parcours chez **Orange** en tant que **technicien réseau**, où j’ai appris les bases — de l’installation de matériel télécom à la résolution de problèmes complexes de connectivité 🔌. Avant cela, j’ai également servi dans la **Gendarmerie nationale** 👮, une expérience qui m’a appris la discipline et le travail en équipe.
+
+💡 **Du terrain à l’automatisation**
+
+Avec les années, je suis passé de l’**ingénierie pratique** à l’**automatisation réseau**, poussé par ma passion pour l’innovation 🤖. Aujourd’hui, je me concentre sur l’**automatisation des processus**, l’amélioration de la **scalabilité**, et l’accompagnement des équipes vers l’**avenir du réseau**.
+
+📚 **Apprenant à vie & promoteur de l’esprit d’équipe**
+
+Je crois en la **croissance collective**. Que ce soit par le partage de connaissances, la curiosité ou l’expérimentation d’idées, j’essaie toujours de créer un environnement où **apprendre fait partie du quotidien** 🌱.
