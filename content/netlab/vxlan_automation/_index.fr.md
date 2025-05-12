@@ -1,7 +1,7 @@
 ---
 title: Automatisation VXLAN avec Netbox
-draft: true
 date: 2025-04-02T20:00:00+02:00
+draft: true
 weight: 3
 cascade:
   type: docs
@@ -164,9 +164,51 @@ Choose site number or 'new': 1
 
 ### Étape 3 : On configure nos clients avec `Create_Fabric/add_customers.py` 🧑‍💻
 
-A ce niveau, la fabric est fonctionnelle, mais aucun client n'est configuré, mais qu'est-ce que ça veut dire !! 🙋
+À ce niveau, la fabric est fonctionnelle, mais aucun client n'est configuré. Qu'est-ce que cela signifie ? 🤔 Cela veut dire que l'*underlay* – la base de notre réseau – est configuré sur Netbox, et qu'il est possible de générer une configuration pour déployer le BGP et configurer les AS. Cependant, les switches d'accès et les leafs ne sont pas encore prêts à accueillir des utilisateurs ou des services clients. Aucune information dans Netbox ne nous le permet encore.
 
+Dans notre approche standardisée, chaque bâtiment est conçu pour accueillir **un** "client". Un client peut être, par exemple, une équipe spécifique au sein de l'entreprise ou un prestataire externe. À chaque client, nous attribuerons un VLAN (et dans notre fabric VXLAN, un VNI correspondant). 🏢➡️🧑‍💻
 
+Pour réaliser cette configuration client, nous utilisons un script dédié : **Create_Fabric/add_customers.py**. Celui-ci va nous guider pas à pas en nous demandant le VLAN et le VNI à attribuer, ainsi que le ou les bâtiments où sont basés nos clients. 📋 Voici un exemple de son exécution :
+
+```bash
+❯ uv run Create_Fabric/add_customers.py
+Enter NetBox URL: http://localhost:8080
+Enter NetBox API Token: 4e58e40e6b19d7f6cc53ae5665ca7ddd00558e71
+Enter Customer Name: Orange
+Enter VLAN ID (1-4094): 10
+Enter VNI ID: 10010
+
+Available Locations:
+0: PA1
+1: PA2
+2: PA3
+3: PA4
+Select locations (comma-separated indices): 0,2
+
+❯ uv run Create_Fabric/add_customers.py
+Enter NetBox URL: http://localhost:8080
+Enter NetBox API Token: 4e58e40e6b19d7f6cc53ae5665ca7ddd00558e71
+Enter Customer Name: Purple
+Enter VLAN ID (1-4094): 10
+Enter VNI ID: 10010
+
+Available Locations:
+0: PA1
+1: PA2
+2: PA3
+3: PA4
+Select locations (comma-separated indices): 1,3
+```
+
+Une fois ces informations fournies, le script se charge d'automatiser plusieurs actions dans Netbox ✨ :
+
+* La création du tenant (représentant le client).
+* L'attribution des bâtiments (locations) au tenant.
+* L'allocation d'un préfixe /24 pour l'adressage IP du client.
+* La configuration logique des éléments VXLAN/VLAN associés.
+* L'attribution des interfaces spécifiques sur les équipements d'accès pour ce client.
+
+Une fois Netbox correctement renseigné avec toutes ces données clients 📊, il devient alors possible d'en extraire la configuration réseau finale prête à l'emploi. ⚙️
 
 ## La Magie des Templates : Netbox et Jinja2 Entrent en Scène ✨
 
@@ -219,10 +261,62 @@ Maintenant qu'on sait comment Netbox génère les configurations, voyons comment
     * On clique sur l'équipement qui nous intéresse (par exemple, un de nos leafs).
     * Et là, on a un onglet magique : **Render Config** ! En cliquant dessus, on voit la configuration que Netbox a générée pour cet équipement en utilisant le template Jinja2 et ses propres données.
 
-2. **La Touche Humaine dans Containerlab 🖐️** Pour l'instant, on n'a pas de script qui envoie automatiquement ces configurations à nos équipements cEOS dans Containerlab. Donc, on va faire à l'ancienne (mais c'est pour la démo !) :
+2. **La Touche Humaine dans Containerlab 🖐️** Pour l'instant, on n'a pas de script qui envoie automatiquement ces configurations à nos équipements dans Containerlab. Donc, on va faire à l'ancienne (mais c'est pour la démo !) :
 
-    * On se connecte à chaque équipement cEOS de notre lab via SSH (par exemple, en utilisant l'extension VSCode Containerlab comme on l'a vu dans le cookbook).
+    * On se connecte à chaque équipement cEOS de notre lab via SSH (par exemple, en utilisant l'extension VSCode Containerlab comme on l'a vu dans le [cookbook](https://github.com/darnodo/projet-vxlan-automation/blob/dev/documentation/CookBook.md#%EF%B8%8F-deploy-configuration)).
     * On copie la configuration qu'on a visualisée dans Netbox (l'onglet **Render Config**).
     * Et on la colle dans l'interface de ligne de commande de l'équipement cEOS (en mode configuration, bien sûr !).
 
 3. **Et Après ? Les Perspectives d'Évolution 🚀** Bien sûr, cette étape de copier-coller, c'est pas le top de l'automatisation ! Mais c'est une première étape pour voir comment Netbox peut être notre cerveau central. Dans le futur, on pourrait imaginer des outils comme Ansible ou NAPALM qui se connecteraient à Netbox, récupéreraient ces configurations générées et les appliqueraient automatiquement à nos équipements. C'est une piste pour de prochaines aventures dans l'automatisation ! 😉
+
+## Validation de la communication ✅
+
+### Ping ⚽
+
+Dans le cookbook, nous avons fait le choix de configurer 2 clients chacun dans 2 batiments différent, ce qui nous permet de réalisé un **ping**, pour rappel :  
+
+1. 🟠 Orange:
+    * Sous Réseau: 10.0.0.0/24
+    * Hosts:
+      * PA1: 10.0.0.10
+      * PA3: 10.0.0.20
+
+2. 🟣 Purple
+    * Sous Réseau: 10.0.1.0/24
+    * Hosts:
+      * PA2: 10.0.1.10
+      * PA4: 10.0.1.20
+
+Un simple "ping" nous permet de valider la connectivité entre les 2 sites :
+
+```bash
+/ # ifconfig eth1
+eth1      Link encap:Ethernet  HWaddr AA:C1:AB:49:55:B6  
+          inet addr:10.0.0.10  Bcast:0.0.0.0  Mask:255.255.255.0
+...
+
+/ # ping 10.0.0.20
+PING 10.0.0.20 (10.0.0.20): 56 data bytes
+64 bytes from 10.0.0.20: seq=0 ttl=64 time=15.378 ms
+64 bytes from 10.0.0.20: seq=1 ttl=64 time=4.349 ms
+...
+```
+
+### Capture de paquet
+
+Afin d'aller plus loin, il est aussi possible d'utiliser wireshark présent de base dans le devcontainer avec l'aide de Edgeshark.  
+Pour plus d'information, je vous renvoie à l'article sur [Mon premier Lab](../../netlab/first_lab/#utiliser-edgeshark-)
+
+Et ensuite, via VSCode, il est possible de lancer wireshark directement :
+
+![Extension vscode](leaf1_capture_eth1.png)
+
+![Capture Wireshark](wireshark_eth2_leaf1.png)
+
+## Conclusion
+
+Dans cet article, nous avons exploré comment Netbox, utilisé comme source unique de vérité centralisée (SoT) 🥇, devient un levier puissant pour automatiser le déploiement d'une infrastructure VXLAN. En nous appuyant sur un modèle de site standardisé 📐 et en utilisant des scripts Python pour enrichir Netbox avec les données de notre infrastructure, puis en exploitant la fonctionnalité "Render Config" associée à des templates Jinja2, nous avons démontré qu'il est possible de générer automatiquement les configurations nécessaires, comme pour notre site fictif "Paris". 🇫🇷
+
+Bien que l'application des configurations dans notre laboratoire Containerlab ait été réalisée manuellement pour les besoins de ce guide pas à pas simplifié 🖐️, cette approche met clairement en lumière le potentiel énorme de l'automatisation s'appuyant sur une base de données fiable et centralisée. La standardisation de notre réseau, loin d'être une contrainte, se révèle être le fondement indispensable pour simplifier grandement sa gestion et ouvrir la voie à une automatisation plus poussée et plus efficace avec des outils d'orchestration dédiés. ✅
+
+Ce projet constitue une base solide et inspirante pour aller plus loin. 🚀 Les prochaines étapes pourraient inclure l'intégration d'outils d'automatisation pour le déploiement automatique des configurations générées, ou encore l'extension du modèle standardisé pour gérer des architectures réseau plus complexes. L'automatisation VXLAN avec Netbox est véritablement à portée de main pour quiconque est prêt à structurer son réseau et à centraliser ses données ! 💪
