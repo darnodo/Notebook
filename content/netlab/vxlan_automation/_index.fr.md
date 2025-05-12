@@ -80,7 +80,7 @@ Cette standardisation est la clé qui nous permettra d'automatiser la création 
 
 ## Environment de test
 
-Le POC se jouera sur ContainerLab, il est donc necessaire de se reférencer à [cette article](../../documentation/devpod) afin de facilement reproduire l'installation et les outils.
+Le POC se jouera sur ContainerLab, il est donc nécessaire de se reférencer à [cette article](../../documentation/devpod) afin de facilement reproduire l'installation et les outils.
 
 Nous utiliserons :
 
@@ -313,10 +313,11 @@ Et ensuite, via VSCode, il est possible de lancer wireshark directement :
 
 ![Capture Wireshark](wireshark_eth2_leaf1.png)
 
-## Conclusion
+## Conclusion ✨
 
-Dans cet article, nous avons exploré comment Netbox, utilisé comme source unique de vérité centralisée (SoT) 🥇, devient un levier puissant pour automatiser le déploiement d'une infrastructure VXLAN. En nous appuyant sur un modèle de site standardisé 📐 et en utilisant des scripts Python pour enrichir Netbox avec les données de notre infrastructure, puis en exploitant la fonctionnalité "Render Config" associée à des templates Jinja2, nous avons démontré qu'il est possible de générer automatiquement les configurations nécessaires, comme pour notre site fictif "Paris". 🇫🇷
+Pour résumer notre parcours, on a vu comment Netbox devient notre super allié 🥇 pour automatiser le réseau VXLAN.  
+La clé, c'est de partir d'**une base standardisée** 📐, c'est ce qui permet à Netbox de générer nos configurations presque tout seul grâce aux templates Jinja2.
 
-Bien que l'application des configurations dans notre laboratoire Containerlab ait été réalisée manuellement pour les besoins de ce guide pas à pas simplifié 🖐️, cette approche met clairement en lumière le potentiel énorme de l'automatisation s'appuyant sur une base de données fiable et centralisée. La standardisation de notre réseau, loin d'être une contrainte, se révèle être le fondement indispensable pour simplifier grandement sa gestion et ouvrir la voie à une automatisation plus poussée et plus efficace avec des outils d'orchestration dédiés. ✅
+Même si, pour l'instant, on fait encore un peu de copier-coller 🖐️, le potentiel est immense ! Avoir toutes nos infos centralisées dans Netbox, c'est la première étape pour vraiment simplifier la gestion de notre réseau et ouvrir la porte à une automatisation complète. La standardisation n'est pas une contrainte, mais le tremplin vers plus d'efficacité. ✅
 
-Ce projet constitue une base solide et inspirante pour aller plus loin. 🚀 Les prochaines étapes pourraient inclure l'intégration d'outils d'automatisation pour le déploiement automatique des configurations générées, ou encore l'extension du modèle standardisé pour gérer des architectures réseau plus complexes. L'automatisation VXLAN avec Netbox est véritablement à portée de main pour quiconque est prêt à structurer son réseau et à centraliser ses données ! 💪
+Ce n'est que le début ! Pensez à la suite : déployer ces configs automatiquement, gérer des réseaux plus complexes... L'automatisation est là, accessible, prête à vous faire gagner un temps précieux. 🚀💪
