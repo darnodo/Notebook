@@ -214,6 +214,9 @@ Une fois Netbox correctement renseigné avec toutes ces données clients 📊, i
 
 Maintenant qu'on a notre inventaire réseau au top dans Netbox, comment on dit à nos équipements comment se configurer ? C'est là qu'interviennent les **Render Config** et les **templates Jinja2** !
 
+> [!TIP] Templates
+> Les templates utilisés sont présents [ici](https://github.com/darnodo/projet-vxlan-automation/tree/dev/templates).
+
 ### Les Templates Jinja : Nos Recettes de Configuration 📝
 
 1. **Les Render Config, Késako ? 🤔** Imagine Netbox comme un chef cuisinier qui a tous les ingrédients (nos équipements, leurs interfaces, leurs IPs, etc.). Les Render Config, c'est sa manière de transformer ces ingrédients en plats préparés, c'est-à-dire des fichiers de configuration pour nos équipements réseau.
@@ -260,6 +263,8 @@ Maintenant qu'on sait comment Netbox génère les configurations, voyons comment
     * Dans l'interface de Netbox, on va dans **Devices**.
     * On clique sur l'équipement qui nous intéresse (par exemple, un de nos leafs).
     * Et là, on a un onglet magique : **Render Config** ! En cliquant dessus, on voit la configuration que Netbox a générée pour cet équipement en utilisant le template Jinja2 et ses propres données.
+
+    ![PA01 Leaf Configuration](<Render Config.png>)
 
 2. **La Touche Humaine dans Containerlab 🖐️** Pour l'instant, on n'a pas de script qui envoie automatiquement ces configurations à nos équipements dans Containerlab. Donc, on va faire à l'ancienne (mais c'est pour la démo !) :
 
