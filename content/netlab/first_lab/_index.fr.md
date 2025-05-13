@@ -26,7 +26,7 @@ Allons-y, c'est parti ! 🚀😊
 Avant de commencer, quelques étapes importantes sont à réaliser :
 
 1. **Autorisation de l'environnement AWS** :  
-   Assurez-vous que DevPod est autorisé à accéder à votre environnement AWS. Pour un guide détaillé sur la configuration de DevPod avec AWS, consultez mon article sur ce [sujet](/Notebook/documentation/devpod). 🔑
+   Assurez-vous que DevPod est autorisé à accéder à votre environnement AWS. Pour un guide détaillé sur la configuration de DevPod avec AWS, consultez mon article sur ce [sujet](../../documentation/devpod/). 🔑
 
 2. **Topologie Containerlab** :  
    Nous avons besoin d'un fichier de topologie compréhensible par Containerlab. Dans notre cas, nous créons une topologie VXLAN simple. 🗺️
@@ -115,7 +115,7 @@ Nous allons déployer le lab avec **DevPod** de deux manières :
 ### 1. En Utilisant le Dépôt 📥
 
 1. **Valider la configuration du fournisseur AWS** :  
-   Assurez-vous que votre fournisseur AWS est correctement configuré. Plus de détails [ici](/Notebook/documentation/devpod). ✅
+   Assurez-vous que votre fournisseur AWS est correctement configuré. Plus de détails [ici](../../documentation/devpod/). ✅
 
 2. **Créer un Workspace** :  
    - Rendez-vous dans l'onglet **Workspace** et cliquez sur **Create Workspace**.
