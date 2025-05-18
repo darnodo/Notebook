@@ -21,11 +21,9 @@ Pour illustrer cette approche, nous allons prendre l'exemple d'un site fictif, *
 
 À travers cet exemple concret, nous mettrons en lumière que la standardisation n'est pas une contrainte, mais plutôt le **socle indispensable** pour une automatisation réussie et une gestion réseau simplifiée et efficace.
 
-Alors, prêt à découvrir comment la standardisation ouvre la voie à une automatisation intelligente de votre réseau VXLAN avec Netbox ? C'est parti ! 🚀😊
-
 > [!NOTE] **CookBook**
-> L'ensemble des actions décrites dans cet article sont expliqués [ici](https://github.com/darnodo/projet-vxlan-automation/blob/dev/documentation/CookBook.md#-apply-templates)  
-> Cette article nous fournira pas un guide étape par étape, mais fournira le lien vers le Cookbook qui lui, le fourni.
+> L'ensemble des actions expliquées dans cet article sont décrites [ici](https://github.com/darnodo/projet-vxlan-automation/blob/dev/documentation/CookBook.md#-apply-templates).  
+> Cette article **ne** nous fournira **pas** un guide étape par étape, mais fournira les liens vers le Cookbook qui lui, le fourni.
 
 ## Le Concept du Site Standardisé ⚙️
 
@@ -36,7 +34,8 @@ L'automatisation efficace d'une infrastructure réseau repose sur une base solid
 Un site standard est défini par les éléments suivants :
 
 * **Une Salle Serveur Centrale :** Unique au sein du site, elle héberge les deux spines de la fabric (Spine 1 et Spine 2), constituant le cœur de l'infrastructure réseau.
-* **Un à Cinq Bâtiments Plain-Pied :** Chaque bâtiment est dédié à l'hébergement d'un seul client (bien que des clients puissent être répartis sur plusieurs bâtiments). Chaque bâtiment standard est équipé d'un switch d'accès pour la connectivité locale et d'un unique leaf pour la connexion à la fabric.
+* **Un à Cinq Bâtiments Plain-Pied :** Chaque bâtiment est dédié à l'hébergement d'un seul client (bien que les mêmes clients puissent être répartis sur plusieurs bâtiments).  
+Chaque bâtiment standard est équipé d'un switch d'accès pour la connectivité locale et d'un unique leaf pour la connexion à la fabric.
 
 ### Connectivité Standard des Leafs 🔗
 
@@ -49,7 +48,7 @@ Dans un site standard, la connexion des équipements leaf aux spines suit les r�
 ![Site Standard](<Site Standard.drawio.svg>)
 
 > [!NOTE] Simplification pour le POC
-> Pour les besoins de ce Proof of Concept, nous avons opté pour une architecture simplifiée sans redondance avancée au niveau des connexions leaf-spine.  
+> Pour les besoins de ce **Proof of Concept**, nous avons opté pour une architecture simplifiée sans redondance avancée au niveau des connexions leaf-spine.  
 > L'objectif principal est de démontrer l'automatisation basée sur cette structure standardisée.
 
 ### Plan d'Adressage IP pour le Site "Paris" 🌐
@@ -70,7 +69,7 @@ Pour notre site "Paris", nous allons utiliser les conteneurs de préfixes Netbox
     * CIDR : `10.0.0.0/8`
     * Description : "Préfixe conteneur pour l'adressage des clients du site de Paris"
 
-Ces conteneurs de préfixes sont spécifiques au site de "Paris" et seront utilisés par nos scripts d'automatisation pour attribuer les adresses IP aux différents équipements et clients de ce site, en respectant la structure standard que nous avons définie.
+Ces préfixes de type "Conteneur" sont spécifiques au site de "Paris" et seront utilisés par nos scripts d'automatisation pour attribuer les adresses IP aux différents équipements et clients de ce site, en respectant la structure standard que nous avons définie.
 
 ## Le Site "Paris" : Une Instance de Notre Modèle Standardisé 📍
 
@@ -109,7 +108,7 @@ Avant de construire notre réseau, il faut préparer notre "Source of Truth", Ne
 * Il lit le fichier `devices_model.yml` et crée les modèles d'équipements correspondants dans Netbox. C'est comme enregistrer les types de matériel qu'on va utiliser.
 * Il lit le fichier `IPAM/subnet.yml` et crée :
   * La région "Europe" et le site "Paris".
-  * Les gros blocs d'adresses IP qu'on va utiliser pour notre réseau à Paris (nos "conteneurs de préfixes").
+  * Les blocs d'adresses IP qu'on va utiliser pour notre réseau à Paris (nos "préfixes conteneurs").
 
 **Comment on Lance la Machine :**
 
@@ -152,7 +151,7 @@ Existing Sites:
 Choose site number or 'new': 1
 ```
 
-**Le Résultat ? 🎉** En lançant ce script, on se retrouve avec toute notre infrastructure VXLAN de "Paris" créée et connectée dans Netbox, prête à être configurée ! C'est l'automatisation à son meilleur, rendue possible par notre approche standardisée.  
+**Le Résultat ? 🎉** En lançant ce script, on se retrouve avec toute notre infrastructure VXLAN de "Paris" créée et connectée dans Netbox, prête à être configurée ! 
 
 > [!NOTE] Netbox Plugin
 > La configuration est facilement visualisable avec l'aide du plugin : [netbox_topology_views](https://github.com/netbox-community/netbox-topology-views)
