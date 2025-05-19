@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD033 MD034-->
 
-<h1 align=center>Personnal Notebook | <a href="https://notebook.arnodo.fr/" rel="nofollow">Website</a></h1>
+<h1 align=center>Personnal Notebook | <a href="https://darnodo.github.io/" rel="nofollow">Website</a></h1>
 
 ![Blog](./assets/images/blog.png)
 
