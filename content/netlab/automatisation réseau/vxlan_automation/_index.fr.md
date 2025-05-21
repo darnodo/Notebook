@@ -1,7 +1,6 @@
 ---
 title: Automatisation VXLAN avec Netbox
 date: 2025-04-02T20:00:00+02:00
-draft: true
 weight: 3
 cascade:
   type: docs
