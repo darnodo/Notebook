@@ -1,6 +1,5 @@
 ---
 title: Automatisation VXLAN avec Netbox
-draft: true
 date: 2025-04-02T20:00:00+02:00
 weight: 3
 cascade:
@@ -21,11 +20,9 @@ Pour illustrer cette approche, nous allons prendre l'exemple d'un site fictif, *
 
 À travers cet exemple concret, nous mettrons en lumière que la standardisation n'est pas une contrainte, mais plutôt le **socle indispensable** pour une automatisation réussie et une gestion réseau simplifiée et efficace.
 
-Alors, prêt à découvrir comment la standardisation ouvre la voie à une automatisation intelligente de votre réseau VXLAN avec Netbox ? C'est parti ! 🚀😊
-
 > [!NOTE] **CookBook**
-> L'ensemble des actions décrites dans cet article sont expliqués [ici](https://github.com/darnodo/projet-vxlan-automation/blob/dev/documentation/CookBook.md#-apply-templates)  
-> Cette article nous fournira pas un guide étape par étape, mais fournira le lien vers le Cookbook qui lui, le fourni.
+> L'ensemble des actions expliquées dans cet article sont décrites [ici](https://github.com/darnodo/projet-vxlan-automation/blob/dev/documentation/CookBook.md#-apply-templates).  
+> Cette article **ne** nous fournira **pas** un guide étape par étape, mais fournira les liens vers le Cookbook qui lui, le fourni.
 
 ## Le Concept du Site Standardisé ⚙️
 
@@ -36,7 +33,8 @@ L'automatisation efficace d'une infrastructure réseau repose sur une base solid
 Un site standard est défini par les éléments suivants :
 
 * **Une Salle Serveur Centrale :** Unique au sein du site, elle héberge les deux spines de la fabric (Spine 1 et Spine 2), constituant le cœur de l'infrastructure réseau.
-* **Un à Cinq Bâtiments Plain-Pied :** Chaque bâtiment est dédié à l'hébergement d'un seul client (bien que des clients puissent être répartis sur plusieurs bâtiments). Chaque bâtiment standard est équipé d'un switch d'accès pour la connectivité locale et d'un unique leaf pour la connexion à la fabric.
+* **Un à Cinq Bâtiments Plain-Pied :** Chaque bâtiment est dédié à l'hébergement d'un seul client (bien que les mêmes clients puissent être répartis sur plusieurs bâtiments).  
+Chaque bâtiment standard est équipé d'un switch d'accès pour la connectivité locale et d'un unique leaf pour la connexion à la fabric.
 
 ### Connectivité Standard des Leafs 🔗
 
@@ -49,7 +47,7 @@ Dans un site standard, la connexion des équipements leaf aux spines suit les r�
 ![Site Standard](<Site Standard.drawio.svg>)
 
 > [!NOTE] Simplification pour le POC
-> Pour les besoins de ce Proof of Concept, nous avons opté pour une architecture simplifiée sans redondance avancée au niveau des connexions leaf-spine.  
+> Pour les besoins de ce **Proof of Concept**, nous avons opté pour une architecture simplifiée sans redondance avancée au niveau des connexions leaf-spine.  
 > L'objectif principal est de démontrer l'automatisation basée sur cette structure standardisée.
 
 ### Plan d'Adressage IP pour le Site "Paris" 🌐
@@ -70,7 +68,7 @@ Pour notre site "Paris", nous allons utiliser les conteneurs de préfixes Netbox
     * CIDR : `10.0.0.0/8`
     * Description : "Préfixe conteneur pour l'adressage des clients du site de Paris"
 
-Ces conteneurs de préfixes sont spécifiques au site de "Paris" et seront utilisés par nos scripts d'automatisation pour attribuer les adresses IP aux différents équipements et clients de ce site, en respectant la structure standard que nous avons définie.
+Ces préfixes de type "Conteneur" sont spécifiques au site de "Paris" et seront utilisés par nos scripts d'automatisation pour attribuer les adresses IP aux différents équipements et clients de ce site, en respectant la structure standard que nous avons définie.
 
 ## Le Site "Paris" : Une Instance de Notre Modèle Standardisé 📍
 
@@ -80,7 +78,7 @@ Cette standardisation est la clé qui nous permettra d'automatiser la création 
 
 ## Environment de test
 
-Le POC se jouera sur ContainerLab, il est donc necessaire de se reférencer à [cette article](../../documentation/devpod) afin de facilement reproduire l'installation et les outils.
+Le POC se jouera sur ContainerLab, il est donc nécessaire de se reférencer à [cette article](../../documentation/devpod) afin de facilement reproduire l'installation et les outils.
 
 Nous utiliserons :
 
@@ -109,7 +107,7 @@ Avant de construire notre réseau, il faut préparer notre "Source of Truth", Ne
 * Il lit le fichier `devices_model.yml` et crée les modèles d'équipements correspondants dans Netbox. C'est comme enregistrer les types de matériel qu'on va utiliser.
 * Il lit le fichier `IPAM/subnet.yml` et crée :
   * La région "Europe" et le site "Paris".
-  * Les gros blocs d'adresses IP qu'on va utiliser pour notre réseau à Paris (nos "conteneurs de préfixes").
+  * Les blocs d'adresses IP qu'on va utiliser pour notre réseau à Paris (nos "préfixes conteneurs").
 
 **Comment on Lance la Machine :**
 
@@ -152,7 +150,7 @@ Existing Sites:
 Choose site number or 'new': 1
 ```
 
-**Le Résultat ? 🎉** En lançant ce script, on se retrouve avec toute notre infrastructure VXLAN de "Paris" créée et connectée dans Netbox, prête à être configurée ! C'est l'automatisation à son meilleur, rendue possible par notre approche standardisée.  
+**Le Résultat ? 🎉** En lançant ce script, on se retrouve avec toute notre infrastructure VXLAN de "Paris" créée et connectée dans Netbox, prête à être configurée !
 
 > [!NOTE] Netbox Plugin
 > La configuration est facilement visualisable avec l'aide du plugin : [netbox_topology_views](https://github.com/netbox-community/netbox-topology-views)
@@ -164,13 +162,58 @@ Choose site number or 'new': 1
 
 ### Étape 3 : On configure nos clients avec `Create_Fabric/add_customers.py` 🧑‍💻
 
-A ce niveau, la fabric est fonctionnelle, mais aucun client n'est configuré, mais qu'est-ce que ça veut dire !! 🙋
+À ce niveau, la fabric est fonctionnelle, mais aucun client n'est configuré. Qu'est-ce que cela signifie ? 🤔 Cela veut dire que l'*underlay* – la base de notre réseau – est configuré sur Netbox, et qu'il est possible de générer une configuration pour déployer le BGP et configurer les AS. Cependant, les switches d'accès et les leafs ne sont pas encore prêts à accueillir des utilisateurs ou des services clients. Aucune information dans Netbox ne nous le permet encore.
 
+Dans notre approche standardisée, chaque bâtiment est conçu pour accueillir **un** "client". Un client peut être, par exemple, une équipe spécifique au sein de l'entreprise ou un prestataire externe. À chaque client, nous attribuerons un VLAN (et dans notre fabric VXLAN, un VNI correspondant). 🏢➡️🧑‍💻
 
+Pour réaliser cette configuration client, nous utilisons un script dédié : **Create_Fabric/add_customers.py**. Celui-ci va nous guider pas à pas en nous demandant le VLAN et le VNI à attribuer, ainsi que le ou les bâtiments où sont basés nos clients. 📋 Voici un exemple de son exécution :
+
+```bash
+❯ uv run Create_Fabric/add_customers.py
+Enter NetBox URL: http://localhost:8080
+Enter NetBox API Token: 4e58e40e6b19d7f6cc53ae5665ca7ddd00558e71
+Enter Customer Name: Orange
+Enter VLAN ID (1-4094): 10
+Enter VNI ID: 10010
+
+Available Locations:
+0: PA1
+1: PA2
+2: PA3
+3: PA4
+Select locations (comma-separated indices): 0,2
+
+❯ uv run Create_Fabric/add_customers.py
+Enter NetBox URL: http://localhost:8080
+Enter NetBox API Token: 4e58e40e6b19d7f6cc53ae5665ca7ddd00558e71
+Enter Customer Name: Purple
+Enter VLAN ID (1-4094): 10
+Enter VNI ID: 10010
+
+Available Locations:
+0: PA1
+1: PA2
+2: PA3
+3: PA4
+Select locations (comma-separated indices): 1,3
+```
+
+Une fois ces informations fournies, le script se charge d'automatiser plusieurs actions dans Netbox ✨ :
+
+* La création du tenant (représentant le client).
+* L'attribution des bâtiments (locations) au tenant.
+* L'allocation d'un préfixe /24 pour l'adressage IP du client.
+* La configuration logique des éléments VXLAN/VLAN associés.
+* L'attribution des interfaces spécifiques sur les équipements d'accès pour ce client.
+
+Une fois Netbox correctement renseigné avec toutes ces données clients 📊, il devient alors possible d'en extraire la configuration réseau finale prête à l'emploi. ⚙️
 
 ## La Magie des Templates : Netbox et Jinja2 Entrent en Scène ✨
 
 Maintenant qu'on a notre inventaire réseau au top dans Netbox, comment on dit à nos équipements comment se configurer ? C'est là qu'interviennent les **Render Config** et les **templates Jinja2** !
+
+> [!TIP] Templates
+> Les templates utilisés sont présents [ici](https://github.com/darnodo/projet-vxlan-automation/tree/dev/templates).
 
 ### Les Templates Jinja : Nos Recettes de Configuration 📝
 
@@ -219,10 +262,65 @@ Maintenant qu'on sait comment Netbox génère les configurations, voyons comment
     * On clique sur l'équipement qui nous intéresse (par exemple, un de nos leafs).
     * Et là, on a un onglet magique : **Render Config** ! En cliquant dessus, on voit la configuration que Netbox a générée pour cet équipement en utilisant le template Jinja2 et ses propres données.
 
-2. **La Touche Humaine dans Containerlab 🖐️** Pour l'instant, on n'a pas de script qui envoie automatiquement ces configurations à nos équipements cEOS dans Containerlab. Donc, on va faire à l'ancienne (mais c'est pour la démo !) :
+    ![PA01 Leaf Configuration](<Render Config.png>)
 
-    * On se connecte à chaque équipement cEOS de notre lab via SSH (par exemple, en utilisant l'extension VSCode Containerlab comme on l'a vu dans le cookbook).
+2. **La Touche Humaine dans Containerlab 🖐️** Pour l'instant, on n'a pas de script qui envoie automatiquement ces configurations à nos équipements dans Containerlab. Donc, on va faire à l'ancienne (mais c'est pour la démo !) :
+
+    * On se connecte à chaque équipement cEOS de notre lab via SSH (par exemple, en utilisant l'extension VSCode Containerlab comme on l'a vu dans le [cookbook](https://github.com/darnodo/projet-vxlan-automation/blob/dev/documentation/CookBook.md#%EF%B8%8F-deploy-configuration)).
     * On copie la configuration qu'on a visualisée dans Netbox (l'onglet **Render Config**).
     * Et on la colle dans l'interface de ligne de commande de l'équipement cEOS (en mode configuration, bien sûr !).
 
 3. **Et Après ? Les Perspectives d'Évolution 🚀** Bien sûr, cette étape de copier-coller, c'est pas le top de l'automatisation ! Mais c'est une première étape pour voir comment Netbox peut être notre cerveau central. Dans le futur, on pourrait imaginer des outils comme Ansible ou NAPALM qui se connecteraient à Netbox, récupéreraient ces configurations générées et les appliqueraient automatiquement à nos équipements. C'est une piste pour de prochaines aventures dans l'automatisation ! 😉
+
+## Validation de la communication ✅
+
+### Ping ⚽
+
+Dans le cookbook, nous avons fait le choix de configurer 2 clients chacun dans 2 batiments différent, ce qui nous permet de réalisé un **ping**, pour rappel :  
+
+1. 🟠 Orange:
+    * Sous Réseau: 10.0.0.0/24
+    * Hosts:
+      * PA1: 10.0.0.10
+      * PA3: 10.0.0.20
+
+2. 🟣 Purple
+    * Sous Réseau: 10.0.1.0/24
+    * Hosts:
+      * PA2: 10.0.1.10
+      * PA4: 10.0.1.20
+
+Un simple "ping" nous permet de valider la connectivité entre les 2 sites :
+
+```bash
+/ # ifconfig eth1
+eth1      Link encap:Ethernet  HWaddr AA:C1:AB:49:55:B6  
+          inet addr:10.0.0.10  Bcast:0.0.0.0  Mask:255.255.255.0
+...
+
+/ # ping 10.0.0.20
+PING 10.0.0.20 (10.0.0.20): 56 data bytes
+64 bytes from 10.0.0.20: seq=0 ttl=64 time=15.378 ms
+64 bytes from 10.0.0.20: seq=1 ttl=64 time=4.349 ms
+...
+```
+
+### Capture de paquet
+
+Afin d'aller plus loin, il est aussi possible d'utiliser wireshark présent de base dans le devcontainer avec l'aide de Edgeshark.  
+Pour plus d'information, je vous renvoie à l'article sur [Mon premier Lab](../../netlab/first_lab/#utiliser-edgeshark-)
+
+Et ensuite, via VSCode, il est possible de lancer wireshark directement :
+
+![Extension vscode](leaf1_capture_eth1.png)
+
+![Capture Wireshark](wireshark_eth2_leaf1.png)
+
+## Conclusion ✨
+
+Pour résumer notre parcours, on a vu comment Netbox devient notre super allié 🥇 pour automatiser le réseau VXLAN.  
+La clé, c'est de partir d'**une base standardisée** 📐, c'est ce qui permet à Netbox de générer nos configurations presque tout seul grâce aux templates Jinja2.
+
+Même si, pour l'instant, on fait encore un peu de copier-coller 🖐️, le potentiel est immense ! Avoir toutes nos infos centralisées dans Netbox, c'est la première étape pour vraiment simplifier la gestion de notre réseau et ouvrir la porte à une automatisation complète. La standardisation n'est pas une contrainte, mais le tremplin vers plus d'efficacité. ✅
+
+Ce n'est que le début ! Pensez à la suite : déployer ces configs automatiquement, gérer des réseaux plus complexes... L'automatisation est là, accessible, prête à vous faire gagner un temps précieux. 🚀💪
