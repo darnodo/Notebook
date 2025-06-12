@@ -180,3 +180,15 @@ Bref, ce cadenas est la manifestation la plus visible de ce **garde du corps num
 **Alors, le mot de la fin ?**
 
 Prenez l'habitude de **toujours vérifier la présence de ce cadenas** (et donc du "HTTPS" dans l'adresse) avant de saisir la moindre information sensible ou de télécharger quoi que ce soit sur un site web. N'hésitez pas à **cliquer dessus pour obtenir plus d'informations** si vous avez un doute. Et surtout, soyez **extrêmement vigilants face aux messages d'avertissement de sécurité** que votre navigateur pourrait afficher. Ils sont là pour une bonne raison !
+
+> [!NOTE]Les Formats de Fichiers des Clés et Certificats
+>
+> Vous rencontrerez souvent différents formats de fichiers pour les clés et certificats. Voici les plus courants :
+>
+> *   `.pem` (Privacy Enhanced Mail) : C'est un format très répandu qui peut contenir des certificats de serveur, des certificats intermédiaires, des clés privées, ou même tout cela en même temps. Son contenu est encodé en Base64, ce qui le rend lisible sous forme de texte (vous verrez des lignes comme `-----BEGIN CERTIFICATE-----`).
+> *   `.crt` ou `.cer` (Certificate) : Ces fichiers contiennent généralement un certificat, le plus souvent celui du serveur. Ils peuvent être encodés en Base64 (comme le `.pem`) ou en format binaire DER.
+> *   `.key` (Key) : Ce fichier contient une clé, et dans le contexte SSL/TLS, il s'agit presque toujours de la clé privée du serveur. Elle est cruciale et doit être gardée secrète. Elle est souvent au format PEM.
+> *   `.csr` (Certificate Signing Request) : Ce n'est pas un certificat, mais une demande de certificat. C'est le fichier que vous générez et envoyez à une Autorité de Certification (CA). Il contient votre clé publique et les informations que vous souhaitez voir apparaître dans votre certificat.
+> *   `.p12` ou `.pfx` (PKCS#12) : C'est un format de package qui peut contenir des certificats (publics), des certificats intermédiaires et la clé privée (protégée par un mot de passe) dans un seul fichier binaire. Il est souvent utilisé pour importer/exporter des certificats et clés sous Windows ou macOS.
+>
+> Comprendre ces extensions vous aidera à mieux gérer les fichiers lors de la configuration de SSL/TLS sur un serveur.
