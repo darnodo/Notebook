@@ -1,6 +1,6 @@
 ---
 title: "SSL Bumping : Comment analyser le trafic SSL"
-date: 2025-06-23T20:00:00+02:00
+date: 2025-06-22T20:00:00+02:00
 weight: 3
 cascade:
   type: docs
