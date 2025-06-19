@@ -1,5 +1,5 @@
 ---
-title: "SSL Bumping : Comment analyser le traffic SSL"
+title: "SSL Bumping : Comment analyser le trafic SSL"
 date: 2025-06-23T20:00:00+02:00
 weight: 3
 cascade:
@@ -316,8 +316,6 @@ Le SSL Bumping nous rappelle que :
 Le cadenas vert reste un excellent indicateur de sécurité. Mais comme toute technologie, il a ses limites. Le SSL Bumping nous montre qu'entre vous et le serveur, il peut y avoir des intermédiaires... parfois légitimes, parfois moins.
 
 **Mon conseil ?** Restez curieux, restez vigilants, et n'hésitez pas à expérimenter (dans un lab, bien sûr !). La sécurité informatique est un domaine fascinant où l'attaque et la défense s'enrichissent mutuellement.
-
-Et vous, avez-vous déjà rencontré du SSL Bumping ? Partagez vos expériences !
 
 ---
 
