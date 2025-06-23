@@ -242,7 +242,7 @@ Si vous DEVEZ utiliser le SSL Bumping :
 
 ### L'Alternative : Le SNI Filtering 🎯
 
-Plutôt que de décrypter, pourquoi ne pas simplement filtrer par nom de domaine ?
+Plutôt que de déchiffrer, pourquoi ne pas simplement filtrer par nom de domaine ?
 
 ```
 Client ──"Je veux example.com" (en clair)──> Proxy ──> Décision
@@ -251,7 +251,7 @@ Client ──"Je veux example.com" (en clair)──> Proxy ──> Décision
             (Server Name Indication)
 ```
 
-Le SNI permet de voir le domaine sans décrypter. C'est moins intrusif mais aussi moins précis (on ne voit que le domaine, pas l'URL complète).
+Le SNI permet de voir le domaine sans déchiffrer. C'est moins intrusif mais aussi moins précis (on ne voit que le domaine, pas l'URL complète).
 
 ## Partie 5 : L'Éthique et la Légalité ⚖️
 
